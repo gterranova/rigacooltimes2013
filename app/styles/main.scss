@@ -1,0 +1,365 @@
+$FontAwesomePath: "../fonts";
+@import "bootstrap-sass/lib/bootstrap";
+@import "font-awesome/scss/font-awesome";
+
+@import url(http://fonts.googleapis.com/css?family=Ranchers);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700);
+
+/* Put your CSS here */
+html, body {
+  margin: 20px;
+}
+
+b {
+    font-weight: 700;
+}
+
+.container {
+    font-weight: 200;
+    line-height: 24px;    
+}
+
+.footer > .row {
+    margin:0; 
+    min-height:60px;
+}
+
+.icon-male {
+    color: #87CEFA;
+    font-size: 2em;
+}
+
+.icon-female {
+    color: pink;
+    font-size: 2em;
+}
+
+thead {
+    color: #aaa;
+}
+/*Keyframes*/
+@keyframes snow {
+0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+ 100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
+}
+ 
+@-moz-keyframes snow {
+0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
+}
+/* 
+@-webkit-keyframes snow {
+0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+ 50% {background-color:#b4cfe0;}
+ 100% {background-position: 500px 1000px, 400px 400px, 300px 300px; background-color:#6b92b9;}
+}
+ */
+@-ms-keyframes snow {
+0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+ 100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
+}
+
+body {
+    background:  #B6DEFF;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+
+    //background-color: #6b92b9;
+    background-image: url('../images/snow.png'), url('../images/snow2.png'), url('../images/snow3.png');
+     
+    -webkit-animation: snow 20s linear infinite;
+    -moz-animation: snow 20s linear infinite;
+    -ms-animation: snow 20s linear infinite;
+    animation: snow 20s linear infinite;    
+}
+
+h1 {
+    color: #0066ff;
+    font-family: 'Ranchers', Arial, serif; font-weight: 400;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,.5)), to(rgba(0,0,0,1)));
+    :after {  
+        content : '';  
+        color: #d6d6d6;  
+        text-shadow: 0 1px 0 white;  
+    }      
+}
+
+h1 {
+    color: #0087f8;
+    margin-bottom: 30px;
+    font-size: 70px;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-shadow: -2px -4px 2px #fff, 2px -4px 2px #fff, -4px -6px 1px #ccf, 4px -6px 1px #ccf;
+    position: relative;
+}
+h1:before {
+      color: transparent;
+      margin-top: 1px;
+      text-shadow: 0px -2px 2px #0087f8;
+      -webkit-background-clip: text;
+         -moz-background-clip: text;
+              background-clip: text;
+      content : attr(data-title);
+        position:absolute;
+    }
+
+.text-red {
+    color: #ff0000;
+}
+
+.text-green {
+    color: #00ff00;
+}
+
+h2, h3, h4, h5, h6 { font-family: 'Open Sans', Arial, serif; font-weight: 300; }
+
+.navbar {
+    @include border-left-radius(5px);
+    @include border-right-radius(5px);
+    border: 1px solid #eee;
+}
+
+div .navbar,
+div .navbar .in {
+    background: #fff;
+}
+
+/* set active item to darkgreen */
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover,
+.navbar .navbar-nav > .active > a:focus {
+  background-color: #0066ff;
+  color: white;
+  text-shadow: -1px -1px 1px #ccc;
+}
+
+.icon-bar {
+    background: #ccc;
+}
+
+.modal {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+@media (max-width: $screen-sm-max) {
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      background-image: none;
+      overflow-x:hidden;
+    }
+
+    #content {
+        padding: 0;
+        margin:0;
+        background-color: #fff;
+        border: 0;
+    }
+    
+    .topbar {
+        height: 200px;
+    }
+    .topbar .navbar-container {
+        margin-top: 0;
+    }
+    
+    .ss-container {
+        display: none;
+    }
+    
+    .footer {
+        padding: 0; 
+        margin: 0; 
+        background: #eee;
+    }
+    
+}
+
+@media (min-width: $screen-md){
+    .topbar {
+        margin-top:-90px;    
+        margin-left:-40px; 
+        margin-right:-40px;
+        height: 200px;
+    }    
+    .topbar .navbar-container {
+        margin-top: 90px;
+    }
+
+    .ss-container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 50px;
+        position:relative;
+        height: 480px;
+        overflow: hidden;
+    }
+    
+    .ss-frame {
+        position:absolute;
+        width: 1020px;
+        height: 480px;
+    }
+    
+    .ss-frame .call-for-action {
+        opacity: 0.4;
+        width:360px; 
+        float:right; 
+        margin-right: 60px;
+        margin-top: 60px;
+    }
+
+    .navbar {
+        margin: 0;
+        padding:0;
+    }
+    
+    .navbar-nav:first-child > li:first-child > a:first-child, 
+    .navbar-nav:first-child > li:first-child > a:first-child :hover,
+    .navbar-nav:first-child > li:first-child > a:first-child :focus {
+        @include border-left-radius(5px);
+    }
+    
+    .navbar-nav:last-child > li:last-child, 
+    .navbar-nav:last-child > li:last-child > a:last-child,
+    .navbar-nav:last-child > li:last-child > a:last-child :hover,
+    .navbar-nav:last-child > li:last-child > a:last-child :focus {
+        @include border-right-radius(5px);
+    }
+
+    #content {
+        padding: 40px;
+        background-color: #fff;
+        @include border-left-radius(25px);
+        @include border-right-radius(25px);
+        border: 10px solid #eee;
+    }
+
+    .footer {
+        padding: 20px; 
+        margin: 0 -40px -40px -40px; 
+        background: #eee;
+    }
+    
+    .modal {
+        overflow-y:hidden;
+    }
+    
+    .tabs-left > .tab-content {
+      padding-left: 200px;
+    }
+    
+    .tabs-below > .nav-tabs,
+    .tabs-right > .nav-tabs,
+    .tabs-left > .nav-tabs {
+      border-bottom: 0;
+    }
+    
+    .tab-content > .tab-pane,
+    .pill-content > .pill-pane {
+      display: none;
+    }
+    
+    .tab-content > .active,
+    .pill-content > .active {
+      display: block;
+    }
+    
+    .tabs-below > .nav-tabs {
+      border-top: 1px solid #ddd;
+    }
+    
+    .tabs-below > .nav-tabs > li {
+      margin-top: -1px;
+      margin-bottom: 0;
+    }
+    
+    .tabs-below > .nav-tabs > li > a {
+      -webkit-border-radius: 0 0 4px 4px;
+         -moz-border-radius: 0 0 4px 4px;
+              border-radius: 0 0 4px 4px;
+    }
+    
+    .tabs-below > .nav-tabs > li > a:hover,
+    .tabs-below > .nav-tabs > li > a:focus {
+      border-top-color: #ddd;
+      border-bottom-color: transparent;
+    }
+    
+    .tabs-below > .nav-tabs > .active > a,
+    .tabs-below > .nav-tabs > .active > a:hover,
+    .tabs-below > .nav-tabs > .active > a:focus {
+      border-color: transparent #ddd #ddd #ddd;
+    }
+    
+    .tabs-left > .nav-tabs > li,
+    .tabs-right > .nav-tabs > li {
+      float: none;
+    }
+    
+    .tabs-left > .nav-tabs > li > a,
+    .tabs-right > .nav-tabs > li > a {
+      min-width: 74px;
+      margin-right: 0;
+      margin-bottom: 3px;
+    }
+    
+    .tabs-left > .nav-tabs {
+      float: left;
+      margin-right: 19px;
+      border-right: 1px solid #ddd;
+    }
+    
+    .tabs-left > .nav-tabs > li > a {
+      margin-right: -1px;
+      -webkit-border-radius: 4px 0 0 4px;
+         -moz-border-radius: 4px 0 0 4px;
+              border-radius: 4px 0 0 4px;
+    }
+    
+    .tabs-left > .nav-tabs > li > a:hover,
+    .tabs-left > .nav-tabs > li > a:focus {
+      border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+    }
+    
+    .tabs-left > .nav-tabs .active > a,
+    .tabs-left > .nav-tabs .active > a:hover,
+    .tabs-left > .nav-tabs .active > a:focus {
+      border-color: #ddd transparent #ddd #ddd;
+      *border-right-color: #ffffff;
+    }
+    
+    .tabs-right > .nav-tabs {
+      float: right;
+      margin-left: 19px;
+      border-left: 1px solid #ddd;
+    }
+    
+    .tabs-right > .nav-tabs > li > a {
+      margin-left: -1px;
+      -webkit-border-radius: 0 4px 4px 0;
+         -moz-border-radius: 0 4px 4px 0;
+              border-radius: 0 4px 4px 0;
+    }
+    
+    .tabs-right > .nav-tabs > li > a:hover,
+    .tabs-right > .nav-tabs > li > a:focus {
+      border-color: #eeeeee #eeeeee #eeeeee #dddddd;
+    }
+    
+    .tabs-right > .nav-tabs .active > a,
+    .tabs-right > .nav-tabs .active > a:hover,
+    .tabs-right > .nav-tabs .active > a:focus {
+      border-color: #ddd #ddd #ddd transparent;
+      *border-left-color: #ffffff;
+    }    
+    
+}
+

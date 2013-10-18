@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="col-md-12">
+        <h1>Participants</h1>
+        <p>
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="icon-search"></i>
+              </span>
+              <input type="text" ng-model="search.$" class="form-control">
+            </div><!-- /form-group -->
+        </p>
+        <p>
+            <div class="form-group form-inline">    
+                Filters:
+                <button class="btn" ng-class="{'btn-info':searchCriteria.dinner}" ng-model="searchCriteria.dinner" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Dinner</button>
+                <button class="btn" ng-class="{'btn-info':searchCriteria.party_with_sauna}" ng-model="searchCriteria.party_with_sauna" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Party Sauna</button>
+                <button class="btn" ng-class="{'btn-info':searchCriteria.party_bus}" ng-model="searchCriteria.party_bus" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Party Bus</button>
+                <button class="btn" ng-class="{'btn-info':searchCriteria.accomodation}" ng-model="searchCriteria.accomodation" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Accomodation</button>
+                <button class="btn" ng-class="{'btn-info':searchCriteria.scary_game}" ng-model="searchCriteria.scary_game" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Psyco</button>
+                Results: <b>{{filtered.length}}/{{users.length}}</b>
+            </div>
+        </p>
+        <p>
+            <div class="form-group form-inline" ng-show="search.dinner || search.party_bus">    
+                Subfilters:
+                <select ng-show="search.dinner" class="form-control" ng-model="search.dinner_option" style="width: 100px;">
+                    <option value="A">Menu A</option>
+                    <option value="B">Menu B</option>
+                    <option value="C">Menu C</option>
+                    <option value="D">Menu D</option>
+                </select>
+                <select ng-show="search.party_bus" class="form-control" ng-model="search.party_bus_option" style="width: 200px;">
+                    <option value="A">Party bus from Jurmala</option>
+                    <option value="B">Party bus from Lido Vermanitis</option>
+                </select>            
+            </div>        
+        </p>
+        <div class="clearfix"><br/></div>    
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th><i class="icon-user"></th>
+                    <th></th>
+                    <th><i class="icon-external-link"></i></th>
+                    <th><i class="icon-globe"></i></th>
+                    <th><i class="icon-euro"></i></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in (filtered= (users | filter:search | orderBy:'id'))" ng-click="showOrEdit(user.$id())">
+                    <td style="width: 50px"><gravatar email="user.email" size="50" default-image="'mm'"></gravatar></td>
+                    <td>{{user.getFullName()}}</td>
+                    <td><i ng-class="{'icon-male': user.gender == 'M', 'icon-female': user.gender == 'F'}"></i></td>
+                    <td><a href="https://www.couchsurfing.org/people/{{user.cs_username}}" target="_blank">{{user.cs_username}}</a></td>
+                    <td>{{user.country}}</td>
+                    <td><i class="text-green icon-ok icon-2x" ng-show="user.due_amount <= user.paid_amount"></i></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <br/><br/>
+    </div>
+    <div class="col-md-12">        
+        <div disqus="'rct2013_participants'"></div>
+        <a id="discuss" name="discuss" href="#"></a>    
+    </div>                    
+</div>

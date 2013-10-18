@@ -1,0 +1,46 @@
+        <form name="form" novalidate crud-edit="user" role="form">
+    <div class="container well">
+            <h2>{{user.getFullName()}}</h2>
+                <div class="col-md-2">
+                    <gravatar email="user.email" size="200" class="img-rounded img-responsive" default-image="'mm'"></gravatar>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group" ng-show="user.cs_username">                
+                        <label  class="control-label">CS profile</label>
+                        <p class="form-control-static"><a href="https://www.couchsurfing.org/people/{{user.cs_username}}"  target="_blank">{{user.cs_username}}</a></p>
+                    </div>
+                    <div class="form-group" ng-show="user.email">
+                        <label  class="control-label">E-mail</label>
+                        <p class="form-control-static">*********</p>
+                    </div>
+                    <div class="form-group"  ng-show="user.country">
+                        <label  class="control-label">Country</label>
+                        <p class="form-control-static">{{user.country}}</p>                    
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h4>Activities:</h4>
+                    <p><i ng-class="{'icon-ok': user.dinner, 'icon-remove': !user.dinner, 'text-green': user.dinner, 'text-red': !user.dinner}"></i>&nbsp;
+                        <span ng-hide="user.dinner">No dinner</span>
+                        <b ng-show="user.dinner"> Ok for the dinner (menu {{user.dinner_option}})!</b>
+                    </p>
+                    <p><i ng-class="{'icon-ok': user.party_with_sauna, 'icon-remove': !user.party_with_sauna, 'text-green': user.party_with_sauna, 'text-red': !user.party_with_sauna}"></i>&nbsp;
+                        <span ng-hide="user.party_with_sauna">No party with sauna</span>
+                        <b ng-show="user.party_with_sauna">Ok, prepare the sauna!</b>
+                    </p>
+                    <p><i ng-class="{'icon-ok': user.accomodation, 'icon-remove': !user.accomodation, 'text-green': user.accomodation, 'text-red': !user.accomodation}"></i>&nbsp;
+                        <span ng-hide="user.accomodation">Will not sleep at the sauna place</span>
+                        <b ng-show="user.accomodation">Ok, will sleep at the sauna place!</b>
+                    </p>
+                    <p><i ng-class="{'icon-ok': user.party_bus, 'icon-remove': !user.party_bus, 'text-green': user.party_bus, 'text-red': !user.party_bus}"></i>&nbsp;
+                        <span ng-hide="user.party_bus">No party bus</span>
+                        <b ng-show="user.party_bus">Yes, take a seat on the bus!</b>
+                    </p>
+                    <p><i ng-class="{'icon-ok': user.scary_game, 'icon-remove': !user.scary_game, 'text-green': user.scary_game, 'text-red': !user.scary_game}"></i>&nbsp;
+                        <span ng-hide="user.scary_game">Too old for scary games</span>
+                        <b ng-show="user.scary_game">Brrr, I'm already scared!</b>
+                    </p>
+                </div>                
+            <hr>
+    </div>
+        </form>

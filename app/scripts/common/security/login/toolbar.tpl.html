@@ -1,0 +1,12 @@
+<ul class="nav navbar-nav navbar-right">
+  <li  class="dropdown" ng-show="isAuthenticated()">
+      <a class="dropdown-toggle" role="button"  href="#">{{currentUser.firstname}} {{currentUser.surname}} <b class="caret"></b></a>      
+      <ul class="dropdown-menu" role="menu">
+          <li><a tabindex="-1" href="#!/users/{{currentUser.id}}">Edit your profile</a></li>
+          <li><a tabindex="-1" href="#!/admin/users" ng-show="isAdmin()">Manage Users</a></li>
+          <li class="divider" ng-show="isAdmin()"></li>
+          <li><a ng-click="logout()">Logout</a></li>      
+      </ul>
+  </li>
+  <li ng-hide="isAuthenticated()" ng-class="{ active: isDialogOpen()}" class="login"><a class="login" ng-click="login()">Login</a></li>
+</ul>
